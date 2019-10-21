@@ -1,0 +1,86 @@
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="formVal.css">
+
+    <script>
+        //Array for the Months Dropdown
+        var aryMonth = [
+            "",
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        //Fuction to populate the Dropdown with the Months
+        function printDropdownSelections() {
+            for (var i = 0; i < aryMonth.length; i++) {
+                document.write("<option>" + aryMonth[i] + "</option>");
+            }
+        } 
+
+        function submitValidation() {
+            var txtName = document.forms["infoForm"]["txtName"].value;
+            var txtEmail = document.forms["infoForm"]["txtEmail"].value;
+            var checkEmail = txtEmail.search("@");
+            if(txtName.length < 6 || txtName.valueMissing) {
+                document.getElementById("nameSpan").style.display = "inline";
+                //alert("Please provide a full name.");
+                return false;
+            }
+            if(txtEmail.valueMissing || checkEmail == -1) {
+                document.getElementById("emailSpan").style.display = "inline";
+                //alert("Please provide an email.");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body> 
+        <form name="infoForm"  onclick="submitValidation()" method="post">
+            <p>
+                Name: <input type="text" name="txtName" value="" size="25"/>
+            </p>
+            <span id="nameSpan">
+                Please provide a full name.
+                <script>
+                    document.getElementById("nameSpan").style.display = "none";
+                </script>
+            </span>
+            <p>
+                Email: <input type="text" name="txtEmail" value="" size="25"/>
+            </p>
+            <span id="emailSpan">
+                Please provide a vali email.
+                <script>
+                    document.getElementById("emailSpan").style.display = "none";
+                </script>
+            </span>
+            <p>
+                Phone Number: <input type="number" name="phoneNumber" value="" size="25"/>
+            </p>
+            <span id="phoneSpan"></span>
+            <p>
+                <legend><span>Gender:</span></legend>
+                <input type="radio" name="gender" id="maleOption" value="male" />
+                <label for="maleOption">Male</label>
+                <input type="radio" name="gender" id="femaleOption" value="female" />
+                <label for="femaleOption">Female</label>
+            </p>
+            <p>
+                Please Select Your Birth Month: 
+                <select id="month">
+                    <script>printDropdownSelections()</script>
+                </select>
+            </p>
+
+        <input type="submit" name="submit"/>
+        </form>
+</body>

@@ -1,0 +1,41 @@
+/* apply a natural box layout model to all elements */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+ }
+ 
+ h1 {
+    text-align: center;
+    background-color: aquamarine;
+    border: double;
+    padding-bottom: 50px;
+    padding-top: 50px;
+ }
+
+ body {
+    line-height: 1;
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: arial, helvetica, sans-serif;
+    -moz-box-shadow: 0 0 20px #000000;
+    -webkit-box-shadow: 0 0 20px #000000;
+    box-shadow: 0 0 20px #000000;
+ }
+
+ button {
+    background-color: teal;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+ }
+
+ p {
+    text-align: left;
+ }
+ 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Great Race</title>
+<link href="greatRace.css" type="text/css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Banners' rel='stylesheet' type='text/css'>
+
+<script>
+
+// Declare variables
+var racer1;
+var racer2;
+var interval;
+var marioSpeed = 0;
+var yoshiSpeed = 0;
+var randNum1;
+var randNum2;
+
+function moveRacer()
+{
+	document.getElementById("lightguy").src = "greenlightguy.png";
+	
+	
+	randNum1 = Math.floor(Math.random() * 50);
+	randNum2 = Math.floor(Math.random() * 50);
+	
+	
+	marioSpeed = marioSpeed + randNum1;
+	yoshiSpeed = yoshiSpeed + randNum2;
+	
+	
+	document.getElementById("racer1").style.left = marioSpeed + "px";
+	document.getElementById("racer2").style.left = yoshiSpeed + "px";
+	
+	
+	if (marioSpeed > 1200)
+	{
+		document.getElementById("lightguy").src = "winner.gif";
+		document.getElementById("lightguy").onclick = raceOver;
+		document.getElementById("winningText").innerHTML = "Mario Wins!";
+		marioWinner();
+	}
+	if (yoshiSpeed > 1200)
+	{
+		document.getElementById("lightguy").src = "winner.gif";
+		document.getElementById("lightguy").onclick = raceOver;
+		document.getElementById("winningText").innerHTML = "Yoshi Wins!";
+		yoshiWinner();
+	}
+}
+
+function startRace()
+  {
+	  start = setInterval(function() {moveRacer()}, 500); 
+  }
+
+function raceOver()
+{
+	clearInterval(start);
+	document.getElementById("lightguy").src = "redlightguy.png";
+	document.getElementById("lightguy").onclick = startRace;
+	document.getElementById("winningText").innerHTML = "Click the Stoplight to Start the Race";
+	document.getElementById("racer1").style.left = 0;
+	document.getElementById("racer2").style.left = 0;	
+	marioSpeed = 0;
+	yoshiSpeed = 0;
+}
+
+function marioWinner()
+{
+	clearInterval(start);
+	document.getElementById("winningText").innerHTML = "Mario Wins";
+}
+function yoshiWinner()
+{
+	clearInterval(start);
+	document.getElementById("winningText").innerHTML = "Yoshi Wins";
+}
+</script>
+</head>
+
+<body>
+<h1>The Great Race</h1>
+<div>
+	<div>
+        <div id="main">
+            <h1 id="winningText">Click the Stoplight to Start the Race</h1>
+            <h1> Click the Checkered Flag to Restart the Race</h1>
+            <img id="lightguy" src="redlightguy.png" onClick="startRace()" alt="Red Light" height="167" width="153"/>
+        </div>
+    </div>
+	<div>
+		<img id="racer1" src="marioracer.png" alt="racer1" height="100" width="100" style="position: relative; "/>
+	</div>
+	<div>
+		<img id="racer2" src="yoshiracer.png" alt="racer2" height="100" width="115" style="position: relative; "/>
+	</div>
+</div>
+
+</body>
+</html>

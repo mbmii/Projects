@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background-image: url(marioKartTrack.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#racer1 {
+	position: relative;
+	}
+#racer2 {
+	position: relative;
+	}
+	
+h1 {
+	color: yellow;
+	font-family: Banners;
+	text-align: center;
+	}
+h3  {
+	color: yellow;
+	font-family: Banners;
+	}
+#lightguy {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+#main{
+	display: block;
+	height: 50%;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
