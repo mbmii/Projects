@@ -1,2 +1,2 @@
 # Projects
-Base Projects Page
+School Projects Page
